@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+<mat-card>
+
+  <mat-toolbar>
+  <span></span>
+  <span>{{visitor ? "Modify Visitor" : "New Visitor"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button mat-stroked-button class="btn-dialog-close" (click)="onCancel()" tabindex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<form [formGroup]="visitorForm" class="normal-form" (ngSubmit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="420px">
+    <mat-grid-tile>
+      <div class="controls-container">
+<!--          <input type="hidden" formControlName="_id">
+ -->        <mat-form-field>
+          <input type="text" formControlName="fullName" matInput placeholder="Full Name*">
+          <mat-error>Visitor Name is Mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="tel" formControlName="phone" matInput placeholder="Phone Number">
+        </mat-form-field>
+        <mat-form-field>
+          <textarea formControlName="address" matInput placeholder="Address"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" formControlName="purpose" matInput placeholder="Purpose*">
+          <mat-error>Purpose of visit is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput formControlName="whomToVisit" placeholder="Whom To Visit*">
+        </mat-form-field>
+        <!-- <mat-form-field>
+          <mat-select formControlName="company" placeholder="Company">
+            <mat-option>None</mat-option>
+            <ng-container *ngFor="let company of company">
+              <mat-option>{{company.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field> -->
+      </div>
+    </mat-grid-tile>
+    <!-- Starts the second column-->
+    <mat-grid-tile>
+      <div class="controls-container">
+          <mat-form-field>
+          <input type="text" formControlName="tagNo" matInput placeholder="Tag Number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="dp" placeholder="Date*" formControlName="date">
+<!--           <p>{{service.form.date}}</p>
+ -->          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="time" matInput formControlName="timeIn" placeholder="Time in*">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="time" matInput formControlName="timeOut" placeholder="Time out">
+        </mat-form-field>
+
+        <div class="add-top-padding add-bottom-padding">
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="button-row ">
+          <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"
+            [disabled]="!visitorForm.valid">Submit</button>
+          <button mat-raised-button color="warn" type="submit" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+
+</mat-card>

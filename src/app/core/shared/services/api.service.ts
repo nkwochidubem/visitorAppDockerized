@@ -1,0 +1,33 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Visitor } from '../../dasboard/models/visitor';
+
+const URL = 'http://localhost:3000/api';
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+  constructor(private Http: HttpClient) { }
+
+  getVisitor(): Observable<Visitor[]> {
+    return this.Http.get<Visitor[]>(`${URL}/visitors`);
+  }
+
+  deleteVisitor(_id: string): Observable<Visitor> {
+    return this.Http.delete<Visitor>(`${URL}/visitors/${_id}`);
+  }
+
+  createVisitor(value: Visitor): Observable<Visitor[]> {
+    return this.Http.post<Visitor[]>(`${URL}/visitors`, value);
+  }
+
+  findVisitorById(id: string): Observable<Visitor> {
+    return this.Http.get<Visitor>(`${URL}/visitors/${id}`);
+  }
+
+  updateVisitor(id: string, body: Visitor): Observable<Visitor> {
+    return this.Http.put<Visitor>(`${URL}/visitors/${id}`, body);
+  }
+}
