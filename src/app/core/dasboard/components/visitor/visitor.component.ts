@@ -40,7 +40,7 @@ export class VisitorComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.visitorForm.valid) {
+
       if (this.visitor) {
         this.apiService.updateVisitor(this.visitor._id, this.visitorForm.value)
         .subscribe(data => {
@@ -51,15 +51,14 @@ export class VisitorComponent implements OnInit {
       } else {
         this.apiService.createVisitor(this.visitorForm.value)
         .subscribe(data => {
-          console.log(data);
+          this.visitorForm.reset();
+          this.notificationService.success('Form Submitted Successfully');
+          this.router.navigate(['visitors']);
         },
         err => {
-          console.log(err);
+          this.notificationService.warn('Error saving data');
         });
-        this.router.navigate(['visitors']);
-        this.visitorForm.reset();
-        this.notificationService.success('Form Submitted Successfully');
-      }
+
   }
 
 }

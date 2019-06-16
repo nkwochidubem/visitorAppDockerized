@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { MaterialModule } from '../../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,12 +12,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MaterialModule,
-    NavigationModule,
     FormsModule,
     ReactiveFormsModule
   ],
   exports: [
     LoginComponent
-  ]
+  ],
+  providers: [AuthService]
 })
 export class AuthModule { }

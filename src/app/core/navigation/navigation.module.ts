@@ -1,3 +1,4 @@
+import { AuthModule } from './../auth/auth.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -7,7 +8,8 @@ import { MaterialModule } from '../../material.module';
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    AuthModule
   ],
   exports: [
     NavbarComponent

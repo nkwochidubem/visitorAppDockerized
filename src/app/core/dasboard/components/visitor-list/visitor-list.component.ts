@@ -1,3 +1,4 @@
+import { AuthService } from './../../../auth/services/auth.service';
 import { ApiService } from './../../../shared/services/api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
@@ -31,14 +32,13 @@ export class VisitorListComponent implements OnInit {
   @ViewChild(MatPaginator , { static: false}) paginator: MatPaginator;
 
   constructor(private dialogService: DailogService, private notificationService: NotificationService,
-              private apiService: ApiService, private router: Router) {}
+              private apiService: ApiService, private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.apiService.getVisitor()
     .subscribe(data => {
       this.visitorData = data;
       this.dataSource = new MatTableDataSource<Visitor>(this.visitorData);
-      console.log(this.dataSource);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     }, err => {
@@ -62,7 +62,6 @@ export class VisitorListComponent implements OnInit {
   }
 
   onCreate() {
-
     this.router.navigate(['visitors', 'new']);
   }
 
@@ -89,10 +88,6 @@ export class VisitorListComponent implements OnInit {
       }
     });
 
-  }
-
-  doSignOut() {
-      // this.authService.signOut();
   }
 
 

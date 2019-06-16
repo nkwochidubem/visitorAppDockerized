@@ -3,46 +3,38 @@ const Schema = mongoose.Schema;
 
 const VisitorSchema = new Schema({
     fullName: {
-        type: String,
-        required: true
+        type: String
     },
     gender: {
         type: String
     },
     date: {
-        type: Date,
-        required: true
+        type: Date
     },
     tagNo: {
         type: String
     },
 
     purpose: {
-        type: String,
-        required: true
+        type: String
     },
 
     timeIn: {
-        type: String,
-        required: true
+        type: String
     },
     timeOut: {
         type: String
     },
     whomToVisit: {
-        type: String,
-        required: true
+        type: String
     },
     address: {
         type: String
     },
-    /* company: {
-        type: String,
-        required: true
-    }, */
     phone: {
         type: String
     }
 });
+
 export default mongoose.model('Visitor', VisitorSchema );
 

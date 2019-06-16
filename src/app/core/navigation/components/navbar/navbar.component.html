@@ -10,10 +10,10 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="doSignOut()">
       <mat-icon>settings_power</mat-icon>
       <span>Logout</span>
     </button>
-   
+
   </mat-menu>
    </mat-toolbar-row>

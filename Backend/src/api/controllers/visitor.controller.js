@@ -16,11 +16,11 @@ export default {
             whomToVisit: Joi.string().required(),
             date: Joi.date().required(),
             timeIn: Joi.string().required(),
-            address: Joi.string().optional(),
-            phone: Joi.string().optional(),
-            gender: Joi.string().optional(),
-            tagNo: Joi.string().optional(),
-            timeOut: Joi.string().optional(),
+            address: Joi.string().allow(''),
+            phone: Joi.string().allow(''),
+            gender: Joi.string(),
+            tagNo: Joi.string().allow(''),
+            timeOut: Joi.string().valid('')
 
         });
         const {error, value } = Joi.validate(req.body, schema);
@@ -65,11 +65,11 @@ export default {
           whomToVisit: Joi.string().required(),
           date: Joi.date().required(),
           timeIn: Joi.string().required(),
-          address: Joi.string().optional(),
-          phone: Joi.string().optional(),
+          address: Joi.string().allow('').optional(),
+          phone: Joi.string().allow('').optional(),
           gender: Joi.string().optional(),
-          timeOut: Joi.string().optional(),
-          tagNo: Joi.string().optional(),
+          timeOut: Joi.string().allow('').optional(),
+          tagNo: Joi.string().allow().optional(),
         });
         const {error, value } = Joi.validate(req.body, schema);
         if (error  && error.details) {
