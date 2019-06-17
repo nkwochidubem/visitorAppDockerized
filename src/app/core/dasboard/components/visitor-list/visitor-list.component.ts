@@ -70,7 +70,7 @@ export class VisitorListComponent implements OnInit {
   }
 
   onDelete(id) {
-    this.dialogService.openConfirmDialog('Are you sure you want to delete the record ?')
+    this.dialogService.openConfirmDialog('Are you sure you want to delete this record ?')
     .afterClosed().subscribe(res => {
       if (res) {
         this.apiService.deleteVisitor(id)

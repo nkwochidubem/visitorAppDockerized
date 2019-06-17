@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Visitor } from '../../dasboard/models/visitor';
+import { Company } from '../../dasboard/models/company';
 
 const URL = 'http://localhost:3000/api';
 @Injectable({
@@ -11,6 +12,7 @@ export class ApiService {
 
   constructor(private Http: HttpClient) { }
 
+  // Api for Visitors
   getVisitor(): Observable<Visitor[]> {
     return this.Http.get<Visitor[]>(`${URL}/visitors`);
   }
@@ -30,4 +32,10 @@ export class ApiService {
   updateVisitor(id: string, body: Visitor): Observable<Visitor> {
     return this.Http.put<Visitor>(`${URL}/visitors/${id}`, body);
   }
+
+  // Api for Companiess
+   getCompanies(): Observable<Company[]> {
+      return this.Http.get<Company[]>(`${URL}/companies`);
+   }
+
 }

@@ -29,7 +29,7 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Address</mat-label>
-            <textarea formControlName="address" matInput placeholder="Address"></textarea>
+            <input formControlName="address" matInput placeholder="Address">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -43,22 +43,30 @@
             <input type="text" matInput formControlName="whomToVisit" placeholder="Whom To Visit*">
           </mat-form-field>
 
-          <!-- <mat-form-field>
-          <mat-select formControlName="company" placeholder="Company">
-            <mat-option>None</mat-option>
-            <ng-container *ngFor="let company of company">
-              <mat-option>{{company.name}}</mat-option>
-            </ng-container>
-          </mat-select>
-        </mat-form-field> -->
+          <div class="add-top-padding add-bottom-padding">
+              <mat-radio-group formControlName="gender">
+                <mat-radio-button value="1">Male</mat-radio-button>
+                <mat-radio-button value="2">Female</mat-radio-button>
+              </mat-radio-group>
+          </div>
+          
         </div>
       </mat-grid-tile>
       <!-- Starts the second column-->
       <mat-grid-tile>
         <div class="controls-container">
 
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="company" placeholder="Company">
+                  <!-- <mat-option>None</mat-option> -->
+                  <ng-container *ngFor="let company of companies">
+                    <mat-option [value]="company.name">{{company.name}}</mat-option>
+                  </ng-container>
+                </mat-select>
+            </mat-form-field>
+
           <mat-form-field appearance="outline">
-            <mat-label>Tag Nuumber</mat-label>
+            <mat-label>Tag Number</mat-label>
             <input type="text" formControlName="tagNo" matInput placeholder="Tag Number">
           </mat-form-field>
 
@@ -79,15 +87,8 @@
             <input type="time" matInput formControlName="timeOut" placeholder="Time out">
           </mat-form-field>
 
-          <div class="add-top-padding add-bottom-padding">
-            <mat-radio-group formControlName="gender">
-              <mat-radio-button value="1">Male</mat-radio-button>
-              <mat-radio-button value="2">Female</mat-radio-button>
-            </mat-radio-group>
-          </div>
-
           <div class="button-row ">
-            <button mat-raised-button color="primary" type="submit" 
+            <button mat-raised-button color="primary" type="submit"
               [disabled]="!visitorForm.valid">Submit</button>
             <button mat-raised-button color="warn" type="submit" (click)="onCancel()">Cancel</button>
           </div>

@@ -15,29 +15,25 @@ export class VisitorComponent implements OnInit {
   visitor: Visitor;
   visitorName: boolean;
   visitorForm: FormGroup;
+  companies;
+
   constructor(public visitorService: VisitorService , private fb: FormBuilder,
               private notificationService: NotificationService,
               private apiService: ApiService, private router: Router,
               private route: ActivatedRoute) { }
 
-  company  = [
-    {name: 'VPS Tech', id: 'VPS'},
-    {name: 'Softclo', id: 'SFC'}
-  ];
-
   ngOnInit() {
-
     this.createForm();
     this.setInvoiceToForm();
+    this.getCompanies();
 
   }
-
 
   onCancel() {
     this.visitorForm.reset();
     this.router.navigate(['visitors']);
-  }
 
+  }
 
   onSubmit() {
 
@@ -59,18 +55,18 @@ export class VisitorComponent implements OnInit {
           this.notificationService.warn('Error saving data');
         });
 
+    }
+
   }
 
-}
-
-createForm() {
+  createForm() {
   this.visitorForm = this.fb.group({
     fullName: ['', Validators.required],
     date: ['', Validators.required],
     purpose: ['' , Validators.required],
     timeIn: ['', Validators.required],
     whomToVisit: ['', Validators.required],
-   // company: ['', Validators.required],
+    company: ['', Validators.required],
     phone: ['' ],
     address: ['' ],
     timeOut: ['' ],
@@ -78,7 +74,7 @@ createForm() {
     gender: ['1']
   });
 
-}
+  }
 setInvoiceToForm() {
   this.route.params.subscribe(params => {
     const id = params.id;
@@ -93,8 +89,17 @@ setInvoiceToForm() {
         this.notificationService.warn('failed to Set Invoice');
       });
     }
-  });
+    });
 
-}
+  }
+
+  getCompanies() {
+  this.apiService.getCompanies()
+  .subscribe(data => {
+    this.companies = data;
+    console.log(this.companies);
+  });
+  }
+
 
 }

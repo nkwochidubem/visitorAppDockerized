@@ -5,3 +5,8 @@
 .search-div {
   margin-left: 50px;
 }
+
+body {
+  margin: 0px;
+  font-family: 'Roboto';
+}

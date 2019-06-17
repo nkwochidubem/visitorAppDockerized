@@ -5,7 +5,7 @@ export class Visitor {
   whomToVisit: string;
   date: Date;
   timeIn: string;
-  // company: string;
+  company: string;
   address: string;
   phone: string;
   gender: string;

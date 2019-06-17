@@ -33,7 +33,10 @@ const VisitorSchema = new Schema({
     },
     phone: {
         type: String
-    }
+    },
+    company: {
+      type: String
+  }
 });
 
 export default mongoose.model('Visitor', VisitorSchema );
