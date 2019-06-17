@@ -1,6 +1,7 @@
 
 <div class="signin-wrapper">
-  <form [formGroup]="frm">
+  <mat-card>
+  <form [formGroup]= "frm">
 
     <h1>Visitor App</h1>
 
@@ -30,15 +31,14 @@
     </div>
 
     <!-- Sing-in button -->
-    <button (click)="doSignIn()" [disabled]="isBusy">
-      <ng-template [ngIf]="!isBusy">Sign in</ng-template>
-      <ng-template [ngIf]="isBusy">Signing in</ng-template>
+    <button mat-raised-button (click)="doSignIn()" [disabled]="isBusy">
+      <ng-template [ngIf]="!isBusy">Log in</ng-template>
+      <ng-template [ngIf]="isBusy">Logging in</ng-template>
     </button>
 
     <!-- Tip -->
     <p class="tip">You can sign in with username "frontdesk@vpshom.com" and password "@Tochange123".</p>
 
   </form>
+</mat-card>
 </div>
-
-
