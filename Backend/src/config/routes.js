@@ -1,9 +1,9 @@
 
-import express from 'express';
-import visitorController from '../api/controllers/visitor.controller';
-import companyController from '../api/controllers/company.controller';
+const express = require('express');
+const visitorController = require('../api/controllers/visitor.controller');
+const companyController = require('../api/controllers/company.controller');
 
-export const router = express.Router();
+const router = express.Router();
 
 
 // visitors route
@@ -17,3 +17,6 @@ router.post('/visitors', visitorController.create);
 // company route
 router.get('/companies', companyController.findAll);
 router.post('/companies', companyController.create);
+
+
+module.exports = router;

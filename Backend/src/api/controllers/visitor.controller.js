@@ -1,8 +1,8 @@
-import Joi from '@hapi/joi';
-import Visitor from '../models/visitor.model';
-import HttpStatus from 'http-status-codes';
+const Joi = require('@hapi/joi');
+const Visitor = require('../models/visitor.model');
+const HttpStatus = require('http-status-codes');
 
-export default {
+module.exports = {
     findAll (req, res, next ) {
         Visitor.find()
         .then(visitors => res.json(visitors))

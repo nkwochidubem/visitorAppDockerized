@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  firebaseConfig: {
+ firebaseConfig: {
     apiKey: 'AIzaSyBXmFSki7BgrSSKGqHp4t0qNdd5ZT0I5gg',
     authDomain: 'softclo-visitor-mgt-app.firebaseapp.com',
     databaseURL: 'https://softclo-visitor-mgt-app.firebaseio.com',

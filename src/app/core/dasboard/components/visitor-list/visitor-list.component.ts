@@ -38,6 +38,7 @@ export class VisitorListComponent implements OnInit {
     this.apiService.getVisitor()
     .subscribe(data => {
       this.visitorData = data;
+      console.log(this.visitorData);
       this.dataSource = new MatTableDataSource<Visitor>(this.visitorData);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

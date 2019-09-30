@@ -1,8 +1,8 @@
-import Joi from '@hapi/joi';
-import Company from '../models/company.model';
-import HttpStatus from 'http-status-codes';
+const Joi = require('@hapi/joi');
+const Company = require('../models/company.model');
+const HttpStatus = require('http-status-codes');
 
-export default ({
+module.exports = ({
   findAll(req, res) {
     Company.find()
     .then(company => {
