@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Visitor } from '../../dasboard/models/visitor';
 import { Company } from '../../dasboard/models/company';
 
+// Live backend http://visitorapp-env.dk3pev7qew.us-east-1.elasticbeanstalk.com/api
+// Local Backend http://localhost:5000/api
 const URL = 'http://visitorapp-env.dk3pev7qew.us-east-1.elasticbeanstalk.com/api';
 @Injectable({
   providedIn: 'root'

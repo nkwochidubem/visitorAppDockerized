@@ -18,7 +18,9 @@ app.use((req,res, next) => {
 mongoose.Promise = global.Promise;
 
 // mongodb local connection mongodb://localhost/visitor-list
-mongoose.connect('mongodb+srv://nkwochidubem:icui4cu5517@cluster0-puljv.azure.mongodb.net/visitor-list', { useNewUrlParser: true }  , err => {
+// mongodb+srv://platform1470:<password>@vsitor-app-agkvz.mongodb.net/test?retryWrites=true&w=majority
+// mongodb+srv://nkwochidubem:icui4cu5517@cluster0-puljv.azure.mongodb.net/visitor-list  Working DB
+mongoose.connect('mongodb+srv://platform1470:icui4cu5517@vsitor-app-agkvz.mongodb.net/visitorApp', { useNewUrlParser: true }  , err => {
     if (err) throw err;
     console.log(`Successfully connected to Monogo database.`);
 });
