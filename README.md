@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VisitorAppMean
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# visitorAppDockerized
+Dockerized version of my visitor Application
+>>>>>>> a04ca4aa57e6675133cf5a3dce2867fa3b30f5d0
