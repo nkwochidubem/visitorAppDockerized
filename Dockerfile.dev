@@ -1,0 +1,23 @@
+# create image based on  the official Node 10 image from Dockerhub 
+FROM node:10
+
+# create a directory where the app will be placed
+RUN mkdir -p /app
+
+# Set the working directory of the iage to the /app
+WORKDIR /app
+
+# Copy the package.json file to the working directory
+COPY package*.json /app/
+
+# Run NPM install to install dependencies
+RUN npm install
+
+# Copy the entire application to the working directory of the image
+COPY . /app/
+
+# We expose port 4200 since that is the port angular listens on
+EXPOSE 4200
+
+# Serve the App
+CMD ["npm", "start"]

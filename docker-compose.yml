@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  frontend:
+    build: .
+    ports: 
+      - "4200:4200"
+  backend:
+    build: 
+      context: Backend/
+    ports: 
+      - "5000:5000"
+  #   links: 
+  #     - database
+  # database: # name of the third service
+  #   image: mongo # specify image to build container from
+  #   ports:
+  #     - "27017:27017" # specify port forewarding
+
+ 
